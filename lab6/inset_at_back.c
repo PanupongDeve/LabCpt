@@ -9,7 +9,7 @@ struct listnode {
 typedef struct listnode ListNode;
 typedef ListNode *ListNodePtr;
 
-void insert_at_front(ListNodePtr *HeadPtr,int value);
+void insert_at_back(ListNodePtr *HeadPtr,int value);
 void print(ListNodePtr HeadPtr);
 ListNodePtr find_tail(ListNodePtr HeadPtr);
 int sum(ListNodePtr HeadPtr);
@@ -22,7 +22,7 @@ int main(){
 	do{
 		scanf(" %d", &data);
 		if(data > 0){
-			insert_at_front(&Head, data);
+			insert_at_back(&Head, data);
 		}
 	}while(data > 0);
 	
@@ -33,7 +33,7 @@ int main(){
 	return 0;
 }
 
-void insert_at_front(ListNodePtr *HeadPtr,int value){
+void insert_at_back(ListNodePtr *HeadPtr,int value){
 	ListNodePtr newPtr;
 	ListNodePtr tailPtr;
 	
