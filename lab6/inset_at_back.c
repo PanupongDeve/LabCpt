@@ -44,9 +44,10 @@ void insert_at_back(ListNodePtr *HeadPtr,int value){
 	
 	tailPtr = find_tail(*HeadPtr);
 	
+	//1Node is Data->NULL
 	if(tailPtr == NULL){
 		*HeadPtr = newPtr;
-	} else {
+	} else {// all Node is Data1->Data2->NULL
 		tailPtr->next = newPtr;
 	}
 }
