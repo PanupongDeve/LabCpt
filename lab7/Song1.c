@@ -96,7 +96,7 @@ void insert(ListNodePtr *HeadPtr,Song *sp){
 	
 	if(tailPtr == NULL){
 		*HeadPtr = newPtr;
-	} else {
+	}else {
 		tailPtr->next = newPtr;
 	}
 	

@@ -23,13 +23,50 @@ double sum_duration(ListNodePtr HeadPtr);
 void printSongDetail(ListNodePtr HeadPtr);
 
 int main() {
-	Song *sp;
+	ListNodePtr Head = NULL;
+	Song *sp = NULL;
+	int i;
+
 	
-	sp = input_song();
+	for(i=0;i<5;i++){
+		printf("#### INPUT SONG %d \n",i);
+		sp = input_song();
+		insert(&Head,sp);
+	}
 	
-	printf("%s : %.2f",sp->title,sp->duration);
+	printSongDetail(Head);
+	
+	printf("= %.2f\n", sum_duration(Head));
+	
 	
 	return 0;
+}
+
+
+void insert(ListNodePtr *HeadPtr, Song *sp){
+	ListNodePtr newPtr;
+	ListNodePtr tailPtr;
+	
+	//insert SongData to newPtr;
+	newPtr = (ListNodePtr)malloc(sizeof(ListNode));
+	newPtr->sp = sp;
+	//insertSongtoList(newPtr->sp, sp);
+	newPtr->next = NULL;
+	
+	//find tailPtr
+	tailPtr = find_tail(*HeadPtr);
+	if(tailPtr == NULL){
+		*HeadPtr = newPtr;
+	}else{
+		tailPtr->next = newPtr;
+	}
+	
+	
+}
+
+void insertSongtoList(Song *SongData, Song *BufferPtr){
+	strcpy(SongData->title, BufferPtr->title);
+	SongData->duration = BufferPtr->duration;
 }
 
 double sum_duration(ListNodePtr HeadPtr) {
@@ -74,7 +111,7 @@ ListNodePtr find_tail(ListNodePtr HeadPtr){
 
 void printSongDetail(ListNodePtr HeadPtr) {
 	if(HeadPtr == NULL){
-		printf("SongList is Empty!");
+		printf("SongList is Empty!\n");
 	}
 	
 	while(HeadPtr != NULL){
