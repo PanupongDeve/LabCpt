@@ -32,6 +32,20 @@ int main() {
 	return 0;
 }
 
+double sum_duration(ListNodePtr HeadPtr) {
+	double result = 0;
+	if(HeadPtr == NULL) {
+		return 0;
+	}
+	
+	while(HeadPtr != NULL){
+		result += HeadPtr->sp->duration;
+		HeadPtr = HeadPtr->next;
+	}
+	
+	return result;
+}
+
 Song *input_song(){
 	Song *song;
 	song = (Song*)malloc(sizeof(Song));
