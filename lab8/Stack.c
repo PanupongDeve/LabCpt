@@ -31,15 +31,16 @@ int main(){
 	int result = 0;
 	char text[128];
 	scanf("%[^\n]s",text);
+	
 	printf("%d",getPostFix(&stack,text));
 	
-	
-	//push(&stack,7);
-	//push(&stack,8);
-	//push(&stack,9);
-	//showStack(&stack);
-	//reverseStack(&stack);
-	//showStack(&stack);
+	/*
+	push(&stack,7);
+	push(&stack,8);
+	push(&stack,9);
+	showStack(&stack);
+	reverseStack(&stack);
+	showStack(&stack);*/
 	return 0;
 }
 
@@ -74,7 +75,7 @@ int getPostFix(Stack *StackPtr,char *text){
 }
 
 int cal(int a,int b,char c) {
-	if( c == '+') {
+	/*if( c == '+') {
 		return a+b;
 	}else if( c=='-'){
 		return a-b;
@@ -82,6 +83,17 @@ int cal(int a,int b,char c) {
 		return a/b;
 	}else if (c=='*'){
 		return a*b;
+	}*/
+	
+	switch(c) {
+		case '+':
+			return a+b;
+		case '-':
+			return a-b;
+		case '*':
+			return a*b;
+		case '/':
+			return a/b;
 	}
 }
 
@@ -104,7 +116,7 @@ int isOperator(char c){
 
 void push(Stack *StackPtr, int value){
 	ListNodePtr newNodePtr;
-	ListNodePtr HeadPtr = StackPtr->top;
+	//ListNodePtr HeadPtr = StackPtr->top;
 	
 	//Create New Data
 	newNodePtr = (ListNodePtr)malloc(sizeof(ListNode));
@@ -122,7 +134,7 @@ void push(Stack *StackPtr, int value){
 }
 
 int pop(Stack *StackPtr){
-	int popvalue = 0;
+	int popvalue;
 	
 	if(StackPtr->size == 0 ){
 		printf("Input Error\n");
@@ -132,7 +144,6 @@ int pop(Stack *StackPtr){
 	//Chang Top
 	ListNodePtr TempPtr = StackPtr->top;
 	StackPtr->top = StackPtr->top->next;
-	
 	//input value pop
 	popvalue = TempPtr->data;
 	
@@ -141,6 +152,8 @@ int pop(Stack *StackPtr){
 	
 	//decrease Size
 	StackPtr->size--;
+	
+	
 	return popvalue;
 }
 
