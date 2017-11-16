@@ -38,8 +38,7 @@ int main() {
 	
 	printf("= %.2f",sum_duration(Head));
 	
-	
-	
+
 	return 0;
 }
 

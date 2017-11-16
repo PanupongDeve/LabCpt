@@ -37,8 +37,7 @@ int main() {
 	printSongDetail(Head);
 	
 	printf("= %.2f\n", sum_duration(Head));
-	
-	
+		
 	return 0;
 }
 
