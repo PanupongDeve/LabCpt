@@ -19,6 +19,9 @@ void insert_node(TREE *tp, int value) {
 		insert_node(&((*tp)->leftptr),value);
 	} else if(value > (*tp)->data) {
 		insert_node(&((*tp)->rightptr),value);
+	} else{
+		printf("duplicate node \n");
+		exit(0);
 	}
 }
 
